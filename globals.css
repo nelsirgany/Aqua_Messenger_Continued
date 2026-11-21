@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0b1f3a;
+  --blue: #4a6e93;
+  --grey: #8a939c;
+  --white: #ffffff;
+  --black: #05080c;
+  --mist: #eef1f4;
+  --rule: #d5dbe1;
+
+  /* Severity hues. These are a deliberate override of design-language.md
+     section 2 ("there is no alert color"), added at the client's request.
+     The structural encoding is kept underneath them — a device fault is
+     still a filled panel, not merely a tinted one — so severity continues
+     to survive greyscale, a bad projector, and a colourblind reviewer.
+     --alert  : device issue (offline, displaced, IMU, battery)
+     --illegal: water use a human has classified as illegal */
+  --alert: #c1121f;
+  --illegal: #00b4d8;
+}
+
+@theme inline {
+  --color-*: initial;
+  --color-navy: var(--navy);
+  --color-blue: var(--blue);
+  --color-grey: var(--grey);
+  --color-white: var(--white);
+  --color-black: var(--black);
+  --color-mist: var(--mist);
+  --color-rule: var(--rule);
+  --color-alert: var(--alert);
+  --color-illegal: var(--illegal);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-display: var(--font-barlow-condensed), sans-serif;
+  --font-body: var(--font-public-sans), sans-serif;
+  --font-data: var(--font-roboto-mono), monospace;
+
+  --radius-*: initial;
+  --radius-none: 0px;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-data {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}

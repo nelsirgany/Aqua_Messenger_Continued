@@ -1,0 +1,35 @@
+{
+  "name": "aqua-messenger",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:schema": "dotenv -e .env.local -- sh -c 'psql \"$DATABASE_URL\" -f db/schema.sql'",
+    "db:import": "dotenv -e .env.local -- tsx db/import_hydrants.ts",
+    "db:seed": "dotenv -e .env.local -- sh -c 'psql \"$DATABASE_URL\" -f db/seed.sql'",
+    "db:setup": "npm run db:schema && npm run db:import && npm run db:seed"
+  },
+  "dependencies": {
+    "maplibre-gl": "^5.24.0",
+    "next": "15.5.22",
+    "postgres": "^3.4.9",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv-cli": "^11.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.22",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.8",
+    "typescript": "^5"
+  }
+}
